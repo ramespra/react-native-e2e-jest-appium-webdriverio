@@ -15,4 +15,10 @@ if (!platform[process.env.E2E_DEVICE]) {
   );
 }
 
+if (process.env.E2E_DEVICE === 'android') {
+  platform[process.env.E2E_DEVICE].app = platform[
+    process.env.E2E_DEVICE
+  ].app.replace('$PROJECT_ROOT', process.env.PROJECT_ROOT);
+}
+
 export default platform[process.env.E2E_DEVICE];

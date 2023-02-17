@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator=\"iPhone 14\"",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
     "start:appium": "appium",
     "test:e2e": "jest --testMatch=\"**/__tests__/**/*E2E.test.js\"",
     "test:e2e:all": "yarn test:e2e:android && yarn test:e2e:ios",
-    "test:e2e:android": "E2E_DEVICE=\"android\" yarn test:e2e",
+    "test:e2e:android": "PROJECT_ROOT=$(pwd) E2E_DEVICE=\"android\" yarn test:e2e",
     "test:e2e:ios": "E2E_DEVICE=\"ios\" yarn test:e2e"
   },
   "dependencies": {
@@ -44,9 +44,9 @@
       },
       "android": {
         "platformName": "Android",
-        "platformVersion": "12",
+        "platformVersion": "11",
         "deviceName": "Android Emulator",
-        "app": "./android/app/build/outputs/apk/debug/app-debug.apk",
+        "app": "$PROJECT_ROOT/android/app/build/outputs/apk/debug/app-debug.apk",
         "automationName": "UiAutomator2"
       }
     }

@@ -7,6 +7,7 @@ describe('Appium with Jest automation testing', () => {
   beforeAll(async function () {
     const config = {
       path: '/wd/hub',
+      host: '0.0.0.0',
       port: 4723,
       capabilities: {
         ...platformConfig,
@@ -14,8 +15,6 @@ describe('Appium with Jest automation testing', () => {
     };
 
     client = await wdio.remote(config);
-
-
   });
 
   afterAll(async function () {
